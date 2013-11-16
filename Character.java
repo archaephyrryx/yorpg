@@ -32,9 +32,11 @@ abstract class Character {
   abstract void normal();
   abstract void special();
   public static String about() {
-    String mage = "Mage you look! How did they get so much hp? A wizard did it.";
-    String monster = "Monster: Rest, nom, repeat.";
-    String warrior =  "What, me warrior? I lift things up and put them down.";
-    return ("Mage: " + mage + "\n" + "Monster: " + monster + "\n" + "Warrior :" + warrior);
+    String warrior = "Art thou a warrior, whose blood-lust knows no bound?\n";
+    String rogue = "Or clever rogue, who creeps without a sound?\n";
+    String mage = "The arcane wisdom of the practiced mage\n" +
+	    "Eschews a sword, and reads a spell-book's page.";
+    
+    return (warrior + rogue + mage);
   }
 }

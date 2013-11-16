@@ -10,8 +10,8 @@ public class YoRPG {
 
     public final static int MAX_ENCOUNTERS = 5;
 
-    private Warrior pat;
     private Monster smaug;
+    private Character pat;
 
     private int moveCount;
     private boolean gameOver;
@@ -31,6 +31,7 @@ public class YoRPG {
     public void newGame() {
 	String s;
 	String name = "";
+	String type = "";
 	s = "Welcome to Thy Elden Role-Playing Gambit!\n";
 
 	s += "\nChoose your difficulty: \n";
@@ -53,7 +54,20 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-	pat = new Warrior( name );
+	s = pat.about()
+	System.out.print( s );
+
+	try {
+	    type = in.readLine();
+	}
+	catch ( IOException e ) { }
+
+        if (type.substring(0,1).lowercase().equals("w"))
+	  Warrior pat = new Warrior( name );
+        if (type.substring(0,1).lowercase().equals("r"))
+	  Rogue pat = new Rogue( name );
+        if (type.substring(0,1).lowercase().equals("m"))
+	  Mag pat = new Mage( name );
     }
 
     public boolean playTurn() {
@@ -128,9 +142,8 @@ public class YoRPG {
 	    System.out.println();
 	}
 
-	/*=============================================
-	System.out.println( "Thy game doth be over." );
-	  =============================================*/
+	System.out.println( "Thy quest has reached an end, thy game shall cease.\n"
+	+ "To play again, insert one silver piece." );
 
     }
 }
