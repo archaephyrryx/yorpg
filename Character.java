@@ -9,6 +9,9 @@ abstract class Character {
   protected int _defence;
   protected double _attack;
   protected String _name;
+  protected int _gauge;
+  protected boolean _specialized;
+  protected final int LEVELS[3] = {1, 3, 5};
 
   public boolean isAlive() {
     return (_hp > 0);
@@ -32,10 +35,7 @@ abstract class Character {
   abstract void normal();
   abstract void special();
   public static String about() {
-    String warrior = "Art thou a warrior, whose blood-lust knows no bound?\n";
     String rogue = "Or clever rogue, who creeps without a sound?\n";
-    String mage = "The arcane wisdom of the practiced mage\n" +
-	    "Eschews a sword, and reads a spell-book's page.";
     
     return (warrior + rogue + mage);
   }
