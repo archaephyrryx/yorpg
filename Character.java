@@ -1,8 +1,3 @@
-// Peter Duchovni
-// Period 9
-// Homework 24
-// November 14, 2013
-
 abstract class Character {
   protected int _hp;
   protected int _strength;
@@ -10,8 +5,8 @@ abstract class Character {
   protected double _attack;
   protected String _name;
   protected int _gauge;
-  protected boolean _specialized;
-  protected final int LEVELS[3] = {1, 3, 5};
+  protected boolean _specialized = false;
+  protected final int[] LEVELS = {1, 3, 5};
 
   public boolean isAlive() {
     return (_hp > 0);
@@ -21,8 +16,20 @@ abstract class Character {
     _hp -= damage;
   }
 
+  public void increment() {
+    ++_gauge;
+  }
+
+  public int getLevel() {
+    return (_gauge >= LEVELS[2]) ? 3 :
+           (_gauge >= LEVELS[1]) ? 2 :
+	   (_gauge >= LEVELS[0]) ? 1 : 0;
+  }
+
   public int getDefence() { return _defence; }
+  public int getHp() { return _hp; }
   public String getName() { return _name; }
+  public boolean isSpecialized() { return _specialized; }
 
   public int attack( Character istic ) {
     int damage;
@@ -34,9 +41,5 @@ abstract class Character {
 
   abstract void normal();
   abstract void special();
-  public static String about() {
-    String rogue = "Or clever rogue, who creeps without a sound?\n";
-    
-    return (warrior + rogue + mage);
-  }
+  public abstract String about();
 }
