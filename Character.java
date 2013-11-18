@@ -20,6 +20,10 @@ abstract class Character {
     _hp -= damage;
   }
 
+  public void lowerDefence( int decrement ) {
+    _defence -= decrement;
+  }
+
   public void increment() {
     ++_gauge;
   }
