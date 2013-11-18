@@ -28,19 +28,18 @@ public class Warlock extends Character {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
-	  _hp += 20;
+	  _hp -= 20;
           _mana = 9;
 	  break;
 	case 2: // Second-level special
-	  _hp += 15;
+	  _hp -= 15;
           _mana = 6;
 	  break;
 	case 1: // First-level special
-	  _hp += 10;
+	  _hp -= 10;
           _mana = 3;
 	  break;
       }
-      _defence -= ((2 * _mana) / 3);
     }
   }
 
