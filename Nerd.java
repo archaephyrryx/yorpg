@@ -20,18 +20,17 @@ public class Nerd extends Character {
 
   public void special(Character enemy) {
     if (getLevel() > 0) {
-      int multiplier = 0;
+      int multiplier;
       switch (getLevel()) {
         case 3:
           multiplier = 10;
           break;
-        case 2:
-		  multiplier = 0;
-		  break;
+	case 2:
+	  multiplier = 0;
         case 1:
-          multiplier = -10;
-		  break;
-		}
+	  multiplier = -10;
+	  break;
+      }
 		
       /* Ranges for modifier
 		   Level 1: -9 to 1
@@ -39,13 +38,12 @@ public class Nerd extends Character {
 		   Level 3:  1 to 11
       */
       int modifier = (int) (multiplier * Math.random() + 1);
-      
+
       _strength = enemy.getStrength() + modifier;
       _defence = enemy.getDefence() + modifier;
       _attack = enemy.getAttack() + ((int) modifier * 0.05);
       
-      System.out.println("Thou hast taken on the form of thy nemesis!");
-
+      System.out.println("Thou hast assumed the guise of thine enemy!");
     }
   }
 
@@ -57,6 +55,15 @@ public class Nerd extends Character {
   }
 
   public String about() {
-    return "Nerd";
+    return  "The nerd pursues an intellectual life\n" +
+            "Away from battles and all sorts of strife\n" +
+            "And finds no gain in learning skills of blade\n" +
+            "And would much rather study in the shade.\n" +
+            "Yet, when in battle, foes should best take care:\n" +
+            "The nerd hath strategies one must beware.\n" +
+            "For though his frame is slight, a nerd is cunning,\n" +
+            "With inner strength that sends a dragon running;\n" +
+            "For he can LARP as well as any LARPER.\n" +
+            "And so, of nerds, not knights, will sing the harper.";
   }
 }

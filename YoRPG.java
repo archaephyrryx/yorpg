@@ -75,22 +75,24 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
-        if (((knowMoreChoice / 2) % 2) == 1)
+        if (((knowMoreChoice / 2) % 2) == 1) {
 	  System.out.println( (new Warrior()).about() );
 	  System.out.println();
-        if (((knowMoreChoice / 8) % 2) == 1)
+        }
+        if (((knowMoreChoice / 8) % 2) == 1) {
           System.out.println( (new Mage()).about() );
 	  System.out.println();
-
+        }
+        if (((know/16) % 2) == 1) {
+	  System.out.println( (new Nerd()).about() );
+	  System.out.println();
+	}
 	/*
         if (((know/1) % 2) == 1)
           System.out.println( (new Subclass()).about() );
 	  System.out.println();
         if (((know/4) % 2) == 1)
           System.out.println( (new Rogue()).about() );
-	  System.out.println();
-        if (((know/16) % 2) == 1)
-	  System.out.println( (new Nerd()).about() );
 	  System.out.println();
         */
 
