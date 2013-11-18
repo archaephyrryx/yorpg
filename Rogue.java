@@ -38,24 +38,17 @@ public class Rogue extends Character {
           _antiDefence = 2;
 	  break;
       }
-      _specialized = true;
     }
   }
 
   public void normal() {
-    if (_specialized) {
-      _antiDefence = 0;
-      _specialized = false;
-    }
+    _gauge = 0;
+    _antiDefence = 0;
   }
 
   public int attack( Character istic ) {
-    int damage;
-    damage = ((int) (_strength * _attack)) - istic.getDefence();
-    damage = (damage < 0) ? 0 : damage;
-    istic.lowerHp(damage);
     istic.lowerDefence(_antiDefence);
-    return damage;
+    super();
   }
 
   public String about() {

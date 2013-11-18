@@ -79,6 +79,10 @@ public class YoRPG {
 	  System.out.println( (new Warrior()).about() );
 	  System.out.println();
         }
+        if (((know/4) % 2) == 1) {
+          System.out.println( (new Rogue()).about() );
+	  System.out.println();
+	}
         if (((knowMoreChoice / 8) % 2) == 1) {
           System.out.println( (new Mage()).about() );
 	  System.out.println();
@@ -90,9 +94,6 @@ public class YoRPG {
 	/*
         if (((know/1) % 2) == 1)
           System.out.println( (new Subclass()).about() );
-	  System.out.println();
-        if (((know/4) % 2) == 1)
-          System.out.println( (new Rogue()).about() );
 	  System.out.println();
         */
 
@@ -110,9 +111,9 @@ public class YoRPG {
 	  hero = new Mage( name );
         if (type.substring(0,1).toLowerCase().equals("n"))
 	  hero = new Nerd( name );
-	/*
         if (type.substring(0,1).toLowerCase().equals("r"))
 	  hero = new Rogue( name );
+	/*
         if (type.substring(0,1).toLowerCase().equals("s"))
 	  hero = new Subclass( name );
 	*/
