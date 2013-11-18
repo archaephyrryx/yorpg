@@ -5,7 +5,7 @@
  
 public class Warlock extends Character {
 
-  private int _antiStrength;
+  private int _mana;
 
   public Warlock() {
     _name = "Zelda Hyrule";
@@ -14,7 +14,7 @@ public class Warlock extends Character {
     _defence = 50;
     _attack = 0.5;
     _gauge = 0;
-    _antiStrength = 0;
+    _mana = 0;
   }
 
   public Warlock(String name) {
@@ -22,30 +22,32 @@ public class Warlock extends Character {
     _name = name;
   }
 
-  public int getAntiStrength() { return _antiStrength; }
+  public int getMana() { return _mana; }
 
   public void special(Character enemy) {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
 	  _hp += 20;
-          _antiStrength = 9;
+          _mana = 9;
 	  break;
 	case 2: // Second-level special
 	  _hp += 15;
-          _antiStrength = 6;
+          _mana = 6;
 	  break;
 	case 1: // First-level special
 	  _hp += 10;
-          _antiStrength = 3;
+          _mana = 3;
 	  break;
       }
+      _defence -= ((2 * _mana) / 3);
     }
   }
 
   public void normal() {
     _gauge = 0;
-    _antiStrength = 0;
+    _mana = 0;
+    _defence = 50;
   }
 
   public int attack( Character istic ) {
@@ -53,7 +55,7 @@ public class Warlock extends Character {
     damage = ((int) (_strength * _attack)) - istic.getDefence();
     damage = (damage < 0) ? 0 : damage;
     istic.lowerHp(damage);
-    istic.lowerStrength(_antiStrength);
+    istic.lowerStrength(_mana);
     return damage;
   }
 
