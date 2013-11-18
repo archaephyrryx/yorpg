@@ -10,8 +10,8 @@ public class YoRPG {
 
     public final static int MAX_ENCOUNTERS = 5;
 
-    private Monster smaug;
-    private Character pat;
+    private Monster enemy;
+    private Character hero;
 
     private int moveCount;
     private boolean gameOver;
@@ -30,7 +30,7 @@ public class YoRPG {
 
     public void newGame() {
 	String s;
-	int know = 0;
+	int knowMoreChoice = 0;
 	String name = "";
 	String type = "";
 	s = "Welcome to Thy Elden Role-Playing Gambit!\n";
@@ -71,14 +71,14 @@ public class YoRPG {
 	System.out.print( s );
 
 	try {
-	    know = Integer.parseInt( in.readLine() );
+	    knowMoreChoice = Integer.parseInt( in.readLine() );
 	}
 	catch ( IOException e ) { }
 
-        if (((know/2) % 2) == 1)
+        if (((knowMoreChoice / 2) % 2) == 1)
 	  System.out.println( (new Warrior()).about() );
 	  System.out.println();
-        if (((know/8) % 2) == 1)
+        if (((knowMoreChoice / 8) % 2) == 1)
           System.out.println( (new Mage()).about() );
 	  System.out.println();
 
@@ -103,21 +103,21 @@ public class YoRPG {
 	catch ( IOException e ) { }
 
         if (type.substring(0,1).toLowerCase().equals("w"))
-	  pat = new Warrior( name );
+	  hero = new Warrior( name );
         if (type.substring(0,1).toLowerCase().equals("m"))
-	  pat = new Mage( name );
+	  hero = new Mage( name );
         if (type.substring(0,1).toLowerCase().equals("n"))
-	  pat = new Nerd( name );
+	  hero = new Nerd( name );
 	/*
         if (type.substring(0,1).toLowerCase().equals("r"))
-	  pat = new Rogue( name );
+	  hero = new Rogue( name );
         if (type.substring(0,1).toLowerCase().equals("s"))
-	  pat = new Subclass( name );
+	  hero = new Subclass( name );
 	*/
     }
 
     public boolean playTurn() {
-	int i = 1;
+	int specialChoice = 1;
 	int d1, d2;
 
 	if ( Math.random() >= ( difficulty / 3.0 ) ) {
@@ -130,39 +130,39 @@ public class YoRPG {
 	    System.out.println( "Forsooth, yon monster cometh closer every stride!" );
 	    System.out.println( "The battle's victor Fate will soon decide!" );
 
-	    smaug = new Monster();
+	    enemy = new Monster();
 
-	    System.out.println("Current HP: " + pat.getHp());
-	    while( smaug.isAlive() && pat.isAlive() ) {
-		pat.normal();
+	    System.out.println("Current HP: " + hero.getHp());
+	    while( enemy.isAlive() && hero.isAlive() ) {
+		hero.normal();
 
 	        System.out.println();
-		System.out.println("Special Ability Level " + pat.getLevel() + " Ready.\n");
+		System.out.println("Special Ability Level " + hero.getLevel() + " Ready.\n");
 	        System.out.println();
 		try {
 		    System.out.println( "Lo, willst thou tempt the Fates and bear the price?" );
 		    System.out.println( "If nay, then say it once, if aye, then twice." );
 		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
-		    i = Integer.parseInt( in.readLine() );
+		    specialChoice  = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
 
-		if ( i == 2 )
-		    pat.special(smaug);
+		if ( specialChoice == 2 )
+		    hero.special(enemy);
 
 
-		d1 = pat.attack( smaug );
-		d2 = smaug.attack( pat );
+		d1 = hero.attack( enemy );
+		d2 = enemy.attack( hero );
 
 	        System.out.println();
-		System.out.println( pat.getName() + " dealt " + d1 + " points of damage."); 
+		System.out.println( hero.getName() + " dealt " + d1 + " points of damage."); 
 		System.out.println( "Ye Olde Monster hit back for " + d2 + " points of damage."); 
 
-		System.out.println("Current HP: " + pat.getHp());
-		pat.increment();
+		System.out.println("Current HP: " + hero.getHp());
+		hero.increment();
 	    }
 
-	    if ( !smaug.isAlive() && !pat.isAlive() ) {
+	    if ( !enemy.isAlive() && !hero.isAlive() ) {
 	        System.out.println();
 		System.out.println( "The fight was long, and neither side prevailed \n" + 
 				    "With blows each one his nemesis assailed; \n" +
@@ -170,13 +170,13 @@ public class YoRPG {
 				    "For man and beast, the mortal realm to quit." );
 		return false;
 	    }
-	    else if ( !smaug.isAlive() ) {
+	    else if ( !enemy.isAlive() ) {
 	        System.out.println();
 		System.out.println( "O praise, the vile beast is slain!" );
 		System.out.println( "We beg of you to save us once again!" );
 		return true;
 	    }
-	    else if ( !pat.isAlive() ) {
+	    else if ( !hero.isAlive() ) {
 	        System.out.println();
 		System.out.println( "O woe, the beast hath slain our knight," );
 		System.out.println( "Who only once didst lose a fight." );
