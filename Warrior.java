@@ -5,8 +5,7 @@
  
 public class Warrior extends Character {
 
-  public Warrior() {
-    _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
+  public Warrior() { _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
     _hp = 125;
     _strength = 100;
     _defence = 40;
@@ -19,7 +18,7 @@ public class Warrior extends Character {
     _name = name;
   }
 
-  public void special() {
+  public void special(Character enemy) {
     if (getLevel() != 0) {
       _defence = 10; 
       switch (getLevel()) {

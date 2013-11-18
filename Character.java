@@ -26,8 +26,10 @@ abstract class Character {
 	   (_gauge >= LEVELS[0]) ? 1 : 0;
   }
 
-  public int getDefence() { return _defence; }
   public int getHp() { return _hp; }
+  public int getDefence() { return _defence; }
+  public int getStrength() { return _strength; }
+  public double getAttack() { return _attack; }
   public String getName() { return _name; }
   public boolean isSpecialized() { return _specialized; }
 
@@ -40,6 +42,6 @@ abstract class Character {
   }
 
   abstract void normal();
-  abstract void special();
+  abstract void special(Character enemy);
   public abstract String about();
 }

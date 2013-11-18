@@ -13,7 +13,7 @@ public class Mage extends Character {
     _name = name;
   }
 
-  public void special() {
+  public void special(Character enemy) {
     if (getLevel() != 0) {
       int d20 = (int) (Math.random() * 20 + 1);
       System.out.println("The die is cast: " + d20);

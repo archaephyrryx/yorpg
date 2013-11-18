@@ -14,7 +14,7 @@ public class Monster extends Character {
     final int _gauge = 0;
   }
 
-  public void special() { }
+  public void special(Character enemy) { }
   public void normal() { }
   public String about() { return ""; }
 }

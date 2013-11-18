@@ -106,11 +106,11 @@ public class YoRPG {
 	  pat = new Warrior( name );
         if (type.substring(0,1).toLowerCase().equals("m"))
 	  pat = new Mage( name );
+        if (type.substring(0,1).toLowerCase().equals("n"))
+	  pat = new Nerd( name );
 	/*
         if (type.substring(0,1).toLowerCase().equals("r"))
 	  pat = new Rogue( name );
-        if (type.substring(0,1).toLowerCase().equals("n"))
-	  pat = new Nerd( name );
         if (type.substring(0,1).toLowerCase().equals("s"))
 	  pat = new Subclass( name );
 	*/
@@ -148,7 +148,7 @@ public class YoRPG {
 		catch ( IOException e ) { }
 
 		if ( i == 2 )
-		    pat.special();
+		    pat.special(smaug);
 
 
 		d1 = pat.attack( smaug );
