@@ -10,7 +10,6 @@ abstract class Character {
   protected double _attack;
   protected String _name;
   protected int _gauge;
-  protected boolean _specialized = false;
   protected final int[] LEVELS = {1, 3, 5};
 
   public boolean isAlive() {
@@ -36,7 +35,6 @@ abstract class Character {
   public int getStrength() { return _strength; }
   public double getAttack() { return _attack; }
   public String getName() { return _name; }
-  public boolean isSpecialized() { return _specialized; }
 
   public int attack( Character istic ) {
     int damage;

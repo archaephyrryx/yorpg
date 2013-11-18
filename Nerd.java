@@ -25,23 +25,32 @@ public class Nerd extends Character {
         case 3:
           multiplier = 10;
           break;
+        case 2:
+		  multiplier = 0;
+		  break;
         case 1:
-			multiplier = -10;
-			break;
+          multiplier = -10;
+		  break;
 		}
 		
+      /* Ranges for modifier
+		   Level 1: -9 to 1
+		   Level 2:    1
+		   Level 3:  1 to 11
+      */
       int modifier = (int) (multiplier * Math.random() + 1);
+      
       _strength = enemy.getStrength() + modifier;
       _defence = enemy.getDefence() + modifier;
       _attack = enemy.getAttack() + ((int) modifier * 0.05);
-      System.out.println("Thou hast taken on the form thy nemesis!");
-      _gauge = 0;
-      _specialized = true;
+      
+      System.out.println("Thou hast taken on the form of thy nemesis!");
+
     }
   }
 
   public void normal() {
-    _specialized = false;
+    _gauge = 0;
     _strength = (int) (10 + 25 * Math.random());
     _defence = 180;
     _attack = 0.5;

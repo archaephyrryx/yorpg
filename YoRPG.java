@@ -134,7 +134,6 @@ public class YoRPG {
 
 	    System.out.println("Current HP: " + hero.getHp());
 	    while( enemy.isAlive() && hero.isAlive() ) {
-		hero.normal();
 
 	        System.out.println();
 		System.out.println("Special Ability Level " + hero.getLevel() + " Ready.\n");
@@ -154,12 +153,16 @@ public class YoRPG {
 		d1 = hero.attack( enemy );
 		d2 = enemy.attack( hero );
 
-	        System.out.println();
+        if ( specialChoice == 2)
+          hero.normal();
+        else
+		  hero.increment();
+
+        System.out.println();
 		System.out.println( hero.getName() + " dealt " + d1 + " points of damage."); 
 		System.out.println( "Ye Olde Monster hit back for " + d2 + " points of damage."); 
 
 		System.out.println("Current HP: " + hero.getHp());
-		hero.increment();
 	    }
 
 	    if ( !enemy.isAlive() && !hero.isAlive() ) {

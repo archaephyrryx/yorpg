@@ -10,7 +10,6 @@ public class Monster extends Character {
     _defence = 20;
     _attack = 1;
     _strength = (int) (Math.random() * 45) + 20;
-    final boolean _specialized = false;
     final int _gauge = 0;
   }
 

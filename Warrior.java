@@ -36,17 +36,13 @@ public class Warrior extends Character {
 	  _hp += 20;
 	  break;
       }
-      _specialized = true;
     }
   }
 
   public void normal() {
-    if (_specialized) {
-      _gauge = 0;
-      _attack = 0.4;
-      _defence = 40; 
-      _specialized = false;
-    }
+    _gauge = 0;
+    _attack = 0.4;
+    _defence = 40; 
   }
 
   public String about() {

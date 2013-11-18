@@ -35,7 +35,6 @@ public class Mage extends Character {
 	  _hp += 5 * d20;
 	  break;
       }
-      _specialized = true;
 
       System.out.printf("New Attack Modifier: %.2f\n", _attack);
       System.out.println("New HP: " + _hp);
@@ -45,15 +44,12 @@ public class Mage extends Character {
   }
 
   public void normal() {
-    if (_specialized) {
-      int d20 = (int) (_attack / 0.05);
-      _gauge = 0;
-      _attack = 1.0;
-      if (_hp > 200) {
-        _hp /= 2; 
-        _hp += 100; 
-      }
-      _specialized = false;
+    int d20 = (int) (_attack / 0.05);
+    _gauge = 0;
+    _attack = 1.0;
+    if (_hp > 200) {
+      _hp /= 2; 
+      _hp += 100; 
     }
   }
 
