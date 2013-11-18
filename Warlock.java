@@ -3,41 +3,41 @@
     by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
 */
  
-public class Rogue extends Character {
+public class Warlock extends Character {
 
-  private int _antiDefence;
+  private int _antiStrength;
 
-  public Rogue() {
-    _name = "Rennac Seethe";
-    _hp = 150;
-    _strength = 80;
-    _defence = 30;
-    _attack = 0.7;
+  public Warlock() {
+    _name = "Zelda Hyrule";
+    _hp = 220;
+    _strength = 70;
+    _defence = 50;
+    _attack = 0.5;
     _gauge = 0;
-    _antiDefence = 0;
+    _antiStrength = 0;
   }
 
-  public Rogue(String name) {
+  public Warlock(String name) {
     this();
     _name = name;
   }
 
-  public int getAntiDefence() { return _antiDefence; }
+  public int getAntiStrength() { return _antiStrength; }
 
   public void special(Character enemy) {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
-	  _hp += 30;
-          _antiDefence = 6;
+	  _hp += 20;
+          _antiStrength = 9;
 	  break;
 	case 2: // Second-level special
-	  _hp += 20;
-          _antiDefence = 4;
+	  _hp += 15;
+          _antiStrength = 6;
 	  break;
 	case 1: // First-level special
 	  _hp += 10;
-          _antiDefence = 2;
+          _antiStrength = 3;
 	  break;
       }
     }
@@ -45,12 +45,16 @@ public class Rogue extends Character {
 
   public void normal() {
     _gauge = 0;
-    _antiDefence = 0;
+    _antiStrength = 0;
   }
 
   public int attack( Character istic ) {
-    istic.lowerDefence(_antiDefence);
-    super();
+    int damage;
+    damage = ((int) (_strength * _attack)) - istic.getDefence();
+    damage = (damage < 0) ? 0 : damage;
+    istic.lowerHp(damage);
+    istic.lowerStrength(_antiStrength);
+    return damage;
   }
 
   public String about() {
@@ -66,19 +70,4 @@ public class Rogue extends Character {
 	   "Yet still cannot survive a fatal blow.";
 
   }
-
-    public static void main( String[] args ) {
-	Rogue war = new Rogue();
-	Monster mon = new Monster();
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-	war.attack(mon);
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-	war.increment();
-	war.special(mon);
-	war.attack(mon);
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-    }
 }
