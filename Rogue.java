@@ -28,34 +28,34 @@ public class Rogue extends Character {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
-	  _hp += 30;
+	  _hp -= 30;
           _mana = 6;
 	  break;
 	case 2: // Second-level special
-	  _hp += 20;
+	  _hp -= 20;
           _mana = 4;
 	  break;
 	case 1: // First-level special
-	  _hp += 10;
+	  _hp -= 10;
           _mana = 2;
 	  break;
       }
-      _strength -= (_mana * 1.5);
+      System.out.println("HP has been decreased to: " + _hp);
+      System.out.println("The enemy's Defence will be decreased by: " + _mana);
     }
   }
 
   public void normal() {
     _gauge = 0;
     _mana = 0;
-    _strength = 80;
   }
 
   public int attack( Character istic ) {
+    istic.lowerDefence(_mana);
     int damage;
     damage = ((int) (_strength * _attack)) - istic.getDefence();
     damage = (damage < 0) ? 0 : damage;
     istic.lowerHp(damage);
-    istic.lowerDefence(_mana);
     return damage;
   }
 

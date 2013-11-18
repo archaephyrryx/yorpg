@@ -40,21 +40,22 @@ public class Warlock extends Character {
           _mana = 3;
 	  break;
       }
+      System.out.println("HP has been decreased to: " + _hp);
+      System.out.println("The enemy's Strength will be decreased by: " + _mana);
     }
   }
 
   public void normal() {
     _gauge = 0;
     _mana = 0;
-    _defence = 50;
   }
 
   public int attack( Character istic ) {
+    istic.lowerStrength(_mana);
     int damage;
     damage = ((int) (_strength * _attack)) - istic.getDefence();
     damage = (damage < 0) ? 0 : damage;
     istic.lowerHp(damage);
-    istic.lowerStrength(_mana);
     return damage;
   }
 
