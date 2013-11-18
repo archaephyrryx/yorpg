@@ -61,19 +61,4 @@ public class Rogue extends Character {
 	   "And if he bides his time and times his lunge\n" +
 	   "More deeply shall his fatal dagger plunge.";
   }
-
-    public static void main( String[] args ) {
-	Rogue war = new Rogue();
-	Monster mon = new Monster();
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-	war.attack(mon);
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-	war.increment();
-	war.special(mon);
-	war.attack(mon);
-	System.out.println(mon.getHp());
-	System.out.println(mon.getDefence());
-    }
 }

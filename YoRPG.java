@@ -61,8 +61,8 @@ public class YoRPG {
 	s += "The features, traits and powers of to learn?\n";
 	s += "If you seek to know of more than one,\n";
 	s += "Simply add together, and be done.\n";
-	s += "\t0: I've no need of information.\n";
-	s += "\t1: This one needs implementation.\n";
+	s += "\t0: There is not a need to teach.\n";
+	s += "\t1: The sorcerer, whose powers leech.\n";
 	s += "\t2: The mighty warrior, great of might.\n";
 	s += "\t4: The rogue, whose steps are feather-light.\n";
 	s += "\t8: The subtle mage, with fearsome wrath.\n";
@@ -75,11 +75,15 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 
+        if (((knowMoreChoice / 1) % 2) == 1) {
+          System.out.println( (new Sorcerer()).about() );
+	  System.out.println();
+	}
         if (((knowMoreChoice / 2) % 2) == 1) {
 	  System.out.println( (new Warrior()).about() );
 	  System.out.println();
         }
-        if (((know/4) % 2) == 1) {
+        if (((knowMoreChoice / 4) % 2) == 1) {
           System.out.println( (new Rogue()).about() );
 	  System.out.println();
 	}
@@ -87,15 +91,10 @@ public class YoRPG {
           System.out.println( (new Mage()).about() );
 	  System.out.println();
         }
-        if (((know/16) % 2) == 1) {
+        if (((knowMoreChoice / 16) % 2) == 1) {
 	  System.out.println( (new Nerd()).about() );
 	  System.out.println();
 	}
-	/*
-        if (((know/1) % 2) == 1)
-          System.out.println( (new Subclass()).about() );
-	  System.out.println();
-        */
 
         System.out.println("Choose a sub-class for your hero,");
         System.out.println("Type one key or more, not zero:");
@@ -113,10 +112,8 @@ public class YoRPG {
 	  hero = new Nerd( name );
         if (type.substring(0,1).toLowerCase().equals("r"))
 	  hero = new Rogue( name );
-	/*
         if (type.substring(0,1).toLowerCase().equals("s"))
-	  hero = new Subclass( name );
-	*/
+	  hero = new Sorcerer( name );
     }
 
     public boolean playTurn() {
