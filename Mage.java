@@ -39,7 +39,7 @@ public class Mage extends Character {
       System.out.printf("New Attack Modifier: %.2f\n", _attack);
       System.out.println("New HP: " + _hp);
 
-
+      _specialized = true;
     }
   }
 
@@ -63,6 +63,6 @@ public class Mage extends Character {
 	   "But he must trade his might to gain this gift\n" +
 	   "And like his vim, his vigor too shall shift.\n" +
 	   "This heightened health, however, shall decay\n" +
-	   "To what 'twould be on any other day." ;
+	   "To what 'twould be on any other day.";
   }
 }
