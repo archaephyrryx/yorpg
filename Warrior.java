@@ -5,7 +5,8 @@
 
 public class Warrior extends Character {
 
-  public Warrior() { _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
+  public Warrior() { 
+      _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
     _hp = 125;
     _strength = 100;
     _defence = 40;

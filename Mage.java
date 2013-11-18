@@ -6,7 +6,8 @@
 public class Mage extends Character {
   public Mage() {
     _name = "Canned Elf";
-    _hp = 200; _strength = 40;
+    _hp = 200; 
+    _strength = 40;
     _defence = 20;
     _attack = 1.0;
     _gauge = 0;
