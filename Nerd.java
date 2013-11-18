@@ -1,3 +1,8 @@
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
+
 public class Nerd extends Character {
   public Nerd() {
     _name = "Linus Snowden";

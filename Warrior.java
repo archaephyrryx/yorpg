@@ -1,8 +1,8 @@
-// Peter Duchovni
-// Period 9
-// HW 24
-// November 14, 2013
- 
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
+
 public class Warrior extends Character {
 
   public Warrior() { _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */

@@ -1,7 +1,7 @@
-// Peter Duchovni
-// Period 9
-// HW 24
-// November 14, 2013
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
 
 import java.io.*;
 import java.util.*;

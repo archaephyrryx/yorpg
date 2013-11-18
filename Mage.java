@@ -1,5 +1,9 @@
-public class Mage extends Character {
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
 
+public class Mage extends Character {
   public Mage() {
     _name = "Canned Elf";
     _hp = 200; _strength = 40;

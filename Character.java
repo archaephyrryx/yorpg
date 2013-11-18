@@ -1,3 +1,8 @@
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
+
 abstract class Character {
   protected int _hp;
   protected int _strength;
