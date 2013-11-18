@@ -19,19 +19,25 @@ public class Nerd extends Character {
   }
 
   public void special(Character enemy) {
-      if (getLevel() > 0) {
-            int multiplier = 0;
-    if (_gauge >= LEVELS[2]) { /* Third-level special ability */        multiplier = 10;
-    } else if (_gauge >= LEVELS[1]) { /* Second-level special */    
-    } else if (_gauge >= LEVELS[0]) { /* First-level special */     multiplier = -10;
+    if (getLevel() > 0) {
+      int multiplier = 0;
+      switch (getLevel()) {
+        case 3:
+          multiplier = 10;
+          break;
+        case 1:
+			multiplier = -10;
+			break;
+		}
+		
+      int modifier = (int) (multiplier * Math.random() + 1);
+      _strength = enemy.getStrength() + modifier;
+      _defence = enemy.getDefence() + modifier;
+      _attack = enemy.getAttack() + ((int) modifier * 0.05);
+      System.out.println("Thou hast taken on the form thy nemesis!");
+      _gauge = 0;
+      _specialized = true;
     }
-        int modifier = (int) (multiplier * Math.random() + 1);
-        _strength = enemy.getStrength() + modifier;
-        _defence = enemy.getDefence() + modifier;
-        _attack = enemy.getAttack() + ((int) modifier * 0.05);
-    _gauge = 0;
-    _specialized = true;
-      }
   }
 
   public void normal() {
