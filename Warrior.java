@@ -6,7 +6,7 @@
 public class Warrior extends Character {
 
   public Warrior() { 
-      _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
+    _name = "Handscio Norris"; /* Hwalker, Geatland Ranger */
     _hp = 125;
     _strength = 100;
     _defence = 40;
@@ -60,6 +60,5 @@ public class Warrior extends Character {
 	   "His injuries ignored, he battles on.\n" +
 	   "His life-force rises when he wounds his foe\n" +
 	   "Yet still cannot survive a fatal blow.";
-
   }
 }
