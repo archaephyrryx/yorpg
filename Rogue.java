@@ -1,7 +1,7 @@
-// Nicholas Romanoff, Peter Duchovni, & Philipp Steinmann
-// Period Nine
-// Homework #24
-// November 17th, 2013
+/*
+    RPG Game
+    by Peter Duchovni, Nicholas Romanoff, and Philipp Steinmann
+*/
  
 public class Rogue extends Character {
 
@@ -22,7 +22,9 @@ public class Rogue extends Character {
     _name = name;
   }
 
-  public void special() {
+  public int getAntiDefence() { return _antiDefence; }
+
+  public void special(Character enemy) {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
@@ -59,4 +61,19 @@ public class Rogue extends Character {
 	   "And if he bides his time and times his lunge\n" +
 	   "More deeply shall his fatal dagger plunge.";
   }
+
+    public static void main( String[] args ) {
+	Rogue war = new Rogue();
+	Monster mon = new Monster();
+	System.out.println(mon.getHp());
+	System.out.println(mon.getDefence());
+	war.attack(mon);
+	System.out.println(mon.getHp());
+	System.out.println(mon.getDefence());
+	war.increment();
+	war.special(mon);
+	war.attack(mon);
+	System.out.println(mon.getHp());
+	System.out.println(mon.getDefence());
+    }
 }

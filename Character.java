@@ -20,6 +20,10 @@ abstract class Character {
     _hp -= damage;
   }
 
+  public void lowerStrength( int decrement ) {
+    _strength -= decrement;
+  }
+
   public void lowerDefence( int decrement ) {
     _defence -= decrement;
   }
