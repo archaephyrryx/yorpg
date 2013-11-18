@@ -5,7 +5,7 @@
  
 public class Rogue extends Character {
 
-  private int _antiDefence;
+  private int _mana;
 
   public Rogue() {
     _name = "Rennac Seethe";
@@ -14,7 +14,7 @@ public class Rogue extends Character {
     _defence = 30;
     _attack = 0.7;
     _gauge = 0;
-    _antiDefence = 0;
+    _mana = 0;
   }
 
   public Rogue(String name) {
@@ -22,35 +22,30 @@ public class Rogue extends Character {
     _name = name;
   }
 
-  public int getAntiDefence() { return _antiDefence; }
+  public int getMana() { return _mana; }
 
   public void special(Character enemy) {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
-	  _hp += 30;
-          _antiDefence = 6;
+	  _hp -= 40;
+	  enemy.lowerDefence(6);
 	  break;
 	case 2: // Second-level special
-	  _hp += 20;
-          _antiDefence = 4;
+	  _hp -= 20;
+	  enemy.lowerDefence(4);
 	  break;
 	case 1: // First-level special
-	  _hp += 10;
-          _antiDefence = 2;
+	  enemy.lowerDefence(2);
 	  break;
       }
+      System.out.println("HP: " + _hp);
+      System.out.println("Enemy's Defence: " + enemy.getDefence());
     }
   }
 
   public void normal() {
     _gauge = 0;
-    _antiDefence = 0;
-  }
-
-  public int attack( Character istic ) {
-    istic.lowerDefence(_antiDefence);
-    super();
   }
 
   public String about() {
@@ -59,6 +54,8 @@ public class Rogue extends Character {
            "With quick and unseen jabs of poisoned knife\n" +
            "He weakens foe's defence and saps their life.\n" +
 	   "And if he bides his time and times his lunge\n" +
-	   "More deeply shall his fatal dagger plunge.";
+	   "More deeply shall his fatal dagger plunge.\n" +
+	   "Yet rogues by poison are affected,\n" +
+	   "Injured, as the one injected.";
   }
 }
