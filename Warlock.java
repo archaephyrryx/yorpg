@@ -22,22 +22,23 @@ public class Warlock extends Character {
     _name = name;
   }
 
-  public int getAntiStrength() { return _antiStrength; }
-
   public void special(Character enemy) {
     if (getLevel() != 0) {
       switch (getLevel()) {
 	case 3: // Third-level special ability
-	  _hp += 20;
-          _antiStrength = 9;
+          enemy.lowerStrength(9);
+          _strength -= 9;
+          _defence += 18;
 	  break;
 	case 2: // Second-level special
-	  _hp += 15;
-          _antiStrength = 6;
+          enemy.lowerStrength(6);
+          _strength -= 6;
+          _defence += 12;
 	  break;
 	case 1: // First-level special
-	  _hp += 10;
-          _antiStrength = 3;
+          enemy.lowerStrength(3);
+          _strength -= 3;
+          _defence += 6;
 	  break;
       }
     }
@@ -45,29 +46,22 @@ public class Warlock extends Character {
 
   public void normal() {
     _gauge = 0;
-    _antiStrength = 0;
+    _strength += ((70 - _strength)/2);
+    _defence -= (70 - _strength);
   }
 
   public int attack( Character istic ) {
-    int damage;
-    damage = ((int) (_strength * _attack)) - istic.getDefence();
-    damage = (damage < 0) ? 0 : damage;
-    istic.lowerHp(damage);
-    istic.lowerStrength(_antiStrength);
-    return damage;
+    super();
   }
 
   public String about() {
-    return "The warrior's blood-lust knows no bound;\n" +
-           "His strength can best most any man's around.\n" +
-	   "His greatest tool is that, when in a fight\n" +
-	   "His concentration may increase his might.\n" +
-	   "And if he toss aside his sturdy shield\n" +
-	   "His vorpal blade two-handed he may wield.\n" +
-	   "When in the midst of battle, pain is gone;\n" +
-	   "His injuries ignored, he battles on.\n" +
-	   "His life-force rises when he wounds his foe\n" +
-	   "Yet still cannot survive a fatal blow.";
-
+    return "The warlock, spoken of in somber tones\n" +
+           "He draws his powers dark from ancient bones.\n" +
+           "Corrupted magic is his chosen art\n" +
+           "And drains the strength from his opponent's heart,\n" +
+           "Though his own strength shall lower just as much\n" +
+           "For tainted magic leaves a tainted touch.\n" +
+           "His loss and foe's loss are each added back\n" +
+           "To give his shield twice what his sword may lack.";
   }
 }
