@@ -52,16 +52,11 @@ public class Rogue extends Character {
   }
 
   public String about() {
-    return "The warrior's blood-lust knows no bound;\n" +
-           "His strength can best most any man's around.\n" +
-	   "His greatest tool is that, when in a fight\n" +
-	   "His concentration may increase his might.\n" +
-	   "And if he toss aside his sturdy shield\n" +
-	   "His vorpal blade two-handed he may wield.\n" +
-	   "When in the midst of battle, pain is gone;\n" +
-	   "His injuries ignored, he battles on.\n" +
-	   "His life-force rises when he wounds his foe\n" +
-	   "Yet still cannot survive a fatal blow.";
-
+    return "The silent stealth that nimble rogues possess\n" +
+           "Enables them to battle with prowess.\n" +
+           "With quick and unseen jabs of poisoned knife\n" +
+           "He weakens foe's defence and saps their life.\n" +
+	   "And if he bides his time and times his lunge\n" +
+	   "More deeply shall his fatal dagger plunge.";
   }
 }
